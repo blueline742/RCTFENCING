@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags for Gallery Page -->
+    <title>Our Work | Fencing & Gate Projects in Liverpool | RCT Fencing</title>
+    <meta name="description" content="View the gallery of our completed fencing, gate, and commercial projects in Liverpool and the North West. See the quality craftsmanship of RCT Fencing.">
+    <meta name="keywords" content="fencing gallery, gate projects, commercial fencing photos, rct fencing work, liverpool fencing projects">
+    <meta name="author" content="RCT Fencing LTD">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Animate On Scroll Library -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+    <!-- Link to your CSS file -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Favicon -->
+    <link rel="icon" href="logo.png" type="image/png">
+
+    <!-- Page-Specific CSS -->
+    <style>
+        .page-header-section {
+            position: relative;
+            padding: 8rem 0;
+            text-align: center;
+            color: white;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        .page-header-section .hero-overlay {
+            background-color: rgba(0, 0, 0, 0.6);
+        }
+        .page-header-section h1 {
+            font-size: clamp(2.2rem, 5vw, 3.5rem);
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+            margin-bottom: 0.5rem;
+            position: relative;
+            z-index: 2;
+        }
+        .page-header-section p {
+            font-size: clamp(1rem, 2.5vw, 1.3rem);
+            max-width: 600px;
+            margin: 0 auto;
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
+            position: relative;
+            z-index: 2;
+        }
+        .contact-cta-section {
+            padding: 6rem 0;
+            transition: background-color var(--transition-speed);
+        }
+        body.light-mode .contact-cta-section {
+            background-color: var(--surface-color-light);
+        }
+        body.dark-mode .contact-cta-section {
+            background-color: var(--surface-color-dark);
+        }
+        .gallery-filters {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        .gallery-filters .btn {
+            margin: 5px;
+        }
+        .gallery-item {
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+        .gallery-item.hidden {
+            transform: scale(0.8);
+            opacity: 0;
+            display: none;
+        }
+    </style>
+</head>
+<body class="light-mode">
+
+    <!-- Header Section -->
+    <header class="header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="nav-logo">
+                    <img src="logo.png" alt="RCT Fencing Logo">
+                </a>
+                <ul class="nav-menu">
+                    <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="fencing.html" class="nav-link">Fencing</a></li>
+                    <li class="nav-item"><a href="gates.html" class="nav-link">Gates</a></li>
+                    <li class="nav-item"><a href="gallery.html" class="nav-link">Our Work</a></li>
+                    <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+                    <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+                <div class="header-actions">
+                    <div class="theme-switcher">
+                        <i class="fas fa-sun" id="theme-icon-sun"></i>
+                        <label class="switch">
+                            <input type="checkbox" id="theme-toggle">
+                            <span class="slider round"></span>
+                        </label>
+                        <i class="fas fa-moon" id="theme-icon-moon"></i>
+                    </div>
+                    <div class="hamburger">
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Page Header Section -->
+        <section class="page-header-section" style="background-image: url('photo_2025-03-17_14-23-52.jpg');">
+            <div class="hero-overlay"></div>
+            <div class="container" data-aos="fade-in">
+                <h1>Our Work</h1>
+                <p>A showcase of our quality craftsmanship and completed projects.</p>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section id="gallery" class="gallery-section">
+            <div class="container" data-aos="fade-up">
+                <div class="section-title">
+                    <h2>Project Gallery</h2>
+                    <p>Need some inspiration? Check out some of our previous work below!</p>
+                </div>
+
+                <!-- Filter Buttons -->
+                <div class="gallery-filters" data-aos="fade-up">
+                    <button class="btn btn-primary filter-btn" data-filter="all">All</button>
+                    <button class="btn btn-secondary filter-btn" data-filter="fencing">Fencing</button>
+                    <button class="btn btn-secondary filter-btn" data-filter="gates">Gates</button>
+                    <button class="btn btn-secondary filter-btn" data-filter="commercial">Commercial</button>
+                </div>
+
+                <!-- Gallery Grid -->
+                <div class="gallery-grid">
+                    <div class="gallery-item" data-category="fencing" data-aos="zoom-in"><img src="photo_2025-03-17_14-23-42.jpg" alt="Feather edge fencing project"></div>
+                    <div class="gallery-item" data-category="gates" data-aos="zoom-in" data-aos-delay="100"><img src="photo_2025-03-17_14-23-47.jpg" alt="Custom wooden gate installation"></div>
+                    <div class="gallery-item" data-category="fencing" data-aos="zoom-in" data-aos-delay="200"><img src="photo_2025-03-17_14-23-49.jpg" alt="Garden panel fencing project"></div>
+                    <div class="gallery-item" data-category="fencing" data-aos="zoom-in" data-aos-delay="300"><img src="photo_2025-03-17_14-23-52.jpg" alt="High post panel fencing"></div>
+                    <div class="gallery-item" data-category="commercial fencing" data-aos="zoom-in" data-aos-delay="400"><img src="photo_2025-03-17_14-23-55.jpg" alt="Commercial security fencing"></div>
+                    <div class="gallery-item" data-category="fencing" data-aos="zoom-in" data-aos-delay="500"><img src="photo_2025-03-17_14-24-33.jpg" alt="Residential fence repair"></div>
+                    <div class="gallery-item" data-category="fencing" data-aos="zoom-in" data-aos-delay="100"><img src="photo_2025-03-17_14-24-54.jpg" alt="Horizontal sawn fencing"></div>
+                    <div class="gallery-item" data-category="fencing" data-aos="zoom-in" data-aos-delay="200"><img src="photo_2025-03-17_14-25-14.jpg" alt="Another fence installation"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="contact-cta-section">
+             <div class="container" data-aos="fade-up" style="text-align: center;">
+                <div class="section-title">
+                    <h2>Like What You See?</h2>
+                    <p>Let's discuss how we can bring your vision to life.</p>
+                </div>
+                <a href="contact.html" class="btn btn-primary">Get Your Free Quote</a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <img src="logo.png" alt="RCT Fencing Logo" class="footer-logo">
+                    <p>Providing top-tier fencing, gates, and decking with professional installation across the North West.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="fencing.html">Fencing</a></li>
+                        <li><a href="gates.html">Gates</a></li>
+                        <li><a href="gallery.html">Our Work</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact Us</h4>
+                    <p><i class="fas fa-phone"></i> +44 7545 342411</p>
+                    <p><i class="fas fa-envelope"></i> info@rctfencing.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> 122 South Rd, Waterloo, Liverpool L22 0ND</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 RCT Fencing LTD - 15471433. All Rights Reserved.</p>
+                <div class="social-icons">
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <a href="#" class="scroll-to-top"><i class="fas fa-arrow-up"></i></a>
+
+    <!-- Animate on Scroll JS -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init({
+          once: true,
+          duration: 1000,
+      });
+    </script>
+
+    <!-- Gallery Filter Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const galleryItems = document.querySelectorAll('.gallery-item');
+
+            filterButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const filter = button.getAttribute('data-filter');
+
+                    // Update button styles
+                    filterButtons.forEach(btn => {
+                        btn.classList.remove('btn-primary');
+                        btn.classList.add('btn-secondary');
+                    });
+                    button.classList.add('btn-primary');
+                    button.classList.remove('btn-secondary');
+
+                    // Filter gallery items
+                    galleryItems.forEach(item => {
+                        const itemCategories = item.getAttribute('data-category');
+                        if (filter === 'all' || itemCategories.includes(filter)) {
+                            item.classList.remove('hidden');
+                        } else {
+                            item.classList.add('hidden');
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+
+    <!-- Link to your JS file -->
+    <script src="script.js"></script>
+</body>
+</html>
