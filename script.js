@@ -1,0 +1,148 @@
+// script.js
+
+document.addEventListener('DOMContentLoaded', () => {
+
+    // --- Mobile Navigation ---
+    const hamburger = document.querySelector('.hamburger');
+    const navMenu = document.querySelector('.nav-menu');
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        navMenu.classList.toggle('active');
+    });
+
+    // Close menu when a link is clicked
+    navLinks.forEach(link => link.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        navMenu.classList.remove('active');
+    }));
+
+    // --- Header Scroll Effect ---
+    const header = document.querySelector('.header');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+    });
+
+    // --- Dark/Light Mode Theme Toggle ---
+    const themeToggle = document.getElementById('theme-toggle');
+    const body = document.body;
+    const heroSection = document.getElementById('home');
+    
+    // Define the dark mode image path
+    const darkModeImage = "url('darkfence.jpg')";
+
+    function setTheme(isDarkMode) {
+        if (isDarkMode) {
+            body.classList.remove('light-mode');
+            body.classList.add('dark-mode');
+            // Set the dark mode image when toggled on
+            if (heroSection) heroSection.style.backgroundImage = darkModeImage;
+            themeToggle.checked = true;
+        } else {
+            body.classList.remove('dark-mode');
+            body.classList.add('light-mode');
+            // Remove the inline style to let the CSS file's default background take over
+            if (heroSection) heroSection.style.backgroundImage = '';
+            themeToggle.checked = false;
+        }
+    }
+
+    // Check for saved theme in localStorage
+    const savedTheme = localStorage.getItem('theme');
+    // Check for system preference
+    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+    // Set initial theme based on saved preference or system setting
+    if (savedTheme === 'dark' || (savedTheme === null && prefersDark)) {
+        setTheme(true);
+    } else {
+        // The default is light mode, which is handled by the CSS.
+        // We just ensure the toggle switch is in the correct (off) state.
+        themeToggle.checked = false;
+    }
+
+    // Event listener for the toggle
+    themeToggle.addEventListener('change', () => {
+        const isDarkMode = themeToggle.checked;
+        setTheme(isDarkMode);
+        localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
+    });
+
+    // --- Scroll to Top Button ---
+    const scrollToTopBtn = document.querySelector('.scroll-to-top');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+            scrollToTopBtn.classList.add('visible');
+        } else {
+            scrollToTopBtn.classList.remove('visible');
+        }
+    });
+
+    scrollToTopBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+
+    // --- Web3Forms Contact Form Handling ---
+    const form = document.getElementById('contact-form');
+    const resultDiv = document.getElementById('form-result');
+
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const formData = new FormData(form);
+        const object = {};
+        formData.forEach((value, key) => {
+            object[key] = value;
+        });
+        const json = JSON.stringify(object);
+        
+        // IMPORTANT: Remember to replace 'YOUR_ACCESS_KEY_HERE' in the HTML file
+        if (object.access_key === 'YOUR_ACCESS_KEY_HERE') {
+             resultDiv.innerHTML = "Please replace 'YOUR_ACCESS_KEY_HERE' in the HTML with your actual key from web3forms.com.";
+             resultDiv.style.color = 'red';
+             return;
+        }
+
+        resultDiv.innerHTML = "Sending...";
+        resultDiv.style.color = 'gray';
+
+        fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: json
+            })
+            .then(async (response) => {
+                let jsonResponse = await response.json();
+                if (response.status == 200) {
+                    resultDiv.innerHTML = "Form submitted successfully!";
+                    resultDiv.style.color = 'green';
+                } else {
+                    console.log(response);
+                    resultDiv.innerHTML = jsonResponse.message;
+                    resultDiv.style.color = 'red';
+                }
+            })
+            .catch(error => {
+                console.log(error);
+                resultDiv.innerHTML = "Something went wrong!";
+                resultDiv.style.color = 'red';
+            })
+            .then(function() {
+                form.reset();
+                setTimeout(() => {
+                    resultDiv.innerHTML = '';
+                }, 5000);
+            });
+    });
+});
