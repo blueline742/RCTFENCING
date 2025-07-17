@@ -242,7 +242,7 @@ body.dark-mode .bar { background-color: var(--secondary-color-dark); }
     background-repeat: no-repeat;
     transition: background-image 1s ease-in-out;
     /* FIX: Set the default (light mode) background image directly in CSS */
-    background-image: url('photo_2025-03-17_14-24-16.jpg');
+    background-image: url('photo_2025-03-17_14-25-14.jpg');
 }
 
 .hero-overlay {
