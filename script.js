@@ -112,61 +112,67 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // --- Web3Forms Contact Form Handling ---
-    const form = document.getElementById('contact-form');
-    const resultDiv = document.getElementById('form-result');
+    function handleContactForm(formId, resultId) {
+        const form = document.getElementById(formId);
+        const resultDiv = document.getElementById(resultId);
 
-    if (form && resultDiv) {
-        form.addEventListener('submit', function(e) {
-        e.preventDefault();
-        const formData = new FormData(form);
-        const object = {};
-        formData.forEach((value, key) => {
-            object[key] = value;
-        });
-        const json = JSON.stringify(object);
-        
-        // IMPORTANT: Remember to replace 'YOUR_ACCESS_KEY_HERE' in the HTML file
-        if (object.access_key === 'YOUR_ACCESS_KEY_HERE') {
-             resultDiv.innerHTML = "Please replace 'YOUR_ACCESS_KEY_HERE' in the HTML with your actual key from web3forms.com.";
-             resultDiv.style.color = 'red';
-             return;
-        }
-
-        resultDiv.innerHTML = "Sending...";
-        resultDiv.style.color = 'gray';
-
-        fetch('https://api.web3forms.com/submit', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json'
-                },
-                body: json
-            })
-            .then(async (response) => {
-                let jsonResponse = await response.json();
-                if (response.status == 200) {
-                    resultDiv.innerHTML = "Form submitted successfully!";
-                    resultDiv.style.color = 'green';
-                } else {
-                    console.log(response);
-                    resultDiv.innerHTML = jsonResponse.message;
-                    resultDiv.style.color = 'red';
+        if (form && resultDiv) {
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const formData = new FormData(form);
+                const object = {};
+                formData.forEach((value, key) => {
+                    object[key] = value;
+                });
+                const json = JSON.stringify(object);
+                
+                // Check if access key is properly set
+                if (object.access_key === 'YOUR_ACCESS_KEY_HERE') {
+                     resultDiv.innerHTML = "Please replace 'YOUR_ACCESS_KEY_HERE' in the HTML with your actual key from web3forms.com.";
+                     resultDiv.style.color = 'red';
+                     return;
                 }
-            })
-            .catch(error => {
-                console.log(error);
-                resultDiv.innerHTML = "Something went wrong!";
-                resultDiv.style.color = 'red';
-            })
-            .then(function() {
-                form.reset();
-                setTimeout(() => {
-                    resultDiv.innerHTML = '';
-                }, 5000);
+
+                resultDiv.innerHTML = "Sending...";
+                resultDiv.style.color = 'gray';
+
+                fetch('https://api.web3forms.com/submit', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Accept': 'application/json'
+                        },
+                        body: json
+                    })
+                    .then(async (response) => {
+                        let jsonResponse = await response.json();
+                        if (response.status == 200) {
+                            resultDiv.innerHTML = "Thank you! Your message has been sent successfully. We'll get back to you soon.";
+                            resultDiv.style.color = 'green';
+                        } else {
+                            console.log(response);
+                            resultDiv.innerHTML = jsonResponse.message;
+                            resultDiv.style.color = 'red';
+                        }
+                    })
+                    .catch(error => {
+                        console.log(error);
+                        resultDiv.innerHTML = "Something went wrong! Please try again or call us directly.";
+                        resultDiv.style.color = 'red';
+                    })
+                    .then(function() {
+                        form.reset();
+                        setTimeout(() => {
+                            resultDiv.innerHTML = '';
+                        }, 8000);
+                    });
             });
-        });
+        }
     }
+
+    // Initialize both contact forms
+    handleContactForm('contact-form', 'form-result'); // Contact page form
+    handleContactForm('contact-form-home', 'form-result-home'); // Home page form
 
     // --- FAQ Functionality ---
     function initializeFAQ() {

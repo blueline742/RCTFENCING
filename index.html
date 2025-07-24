@@ -370,14 +370,78 @@
             </div>
         </section>
 
-        <!-- CTA Section -->
-        <section class="contact-cta-section" style="padding: 4rem 0; background-color: var(--surface-color-light);">
-             <div class="container" data-aos="fade-up" style="text-align: center;">
+        <!-- Contact Section -->
+        <section id="contact" class="contact-section">
+            <div class="container" data-aos="fade-up">
                 <div class="section-title">
                     <h2>Ready to Start Your Project?</h2>
-                    <p>Get in touch for a free, no-obligation quote.</p>
+                    <p>Get in touch for a free, no-obligation quote. We'll get back to you as soon as possible.</p>
                 </div>
-                <a href="contact.html" class="btn btn-primary">Contact Us Today</a>
+                <div class="contact-wrapper">
+                    <div class="contact-form-container" data-aos="fade-right">
+                        <form id="contact-form-home" action="https://api.web3forms.com/submit" method="POST">
+                            <input type="hidden" name="access_key" value="dfeaa5c1-9f02-4fb6-9b18-cc0073086c94">
+                            <input type="hidden" name="subject" value="New Enquiry from RCT Fencing Website (Home Page)">
+                            <input type="hidden" name="from_name" value="RCT Fencing Home Page Enquiry">
+
+                            <div class="form-group">
+                                <label for="name-home">Your Name *</label>
+                                <input type="text" id="name-home" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email-home">Email Address *</label>
+                                <input type="email" id="email-home" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="message-home">Your Message *</label>
+                                <textarea id="message-home" name="message" rows="5" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Send Message</button>
+                            <div id="form-result-home"></div>
+                        </form>
+
+                        <!-- Trust Section -->
+                        <div class="trust-heading" data-aos="fade-up" data-aos-delay="100" style="margin-top: 3rem; text-align: center;">
+                            <p>Trusted, listed and highly reviewed on <strong>Checkatrade.com</strong> and <strong>Mybuilder.com</strong>. Go ahead and check out our <strong> Highly Rated</strong> profiles!</p>
+                            <div class="stars">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <div class="trust-logos" data-aos="fade-up" data-aos-delay="200" style="margin-top: 1rem;">
+                            <div class="trust-logo-item">
+                                <a href="https://www.checkatrade.com/trades/rctfencingltd" target="_blank" rel="noopener">
+                                    <img src="checkatrade.webp" alt="Checkatrade Logo">
+                                </a>
+                            </div>
+                            <div class="trust-logo-item">
+                                <a href="https://www.mybuilder.com/profile/rct_fencing" target="_blank" rel="noopener">
+                                    <img src="mybuilder.png" alt="MyBuilder Logo">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contact-info" data-aos="fade-left" data-aos-delay="200">
+                        <h3>Contact Details</h3>
+                        <p>If you need to speak to us right away, call us and speak to an expert.</p>
+                        <ul>
+                            <li><i class="fas fa-phone"></i> <a href="tel:+447545342411">+44 7545 342411</a></li>
+                            <li><i class="fas fa-envelope"></i> <a href="mailto:info@rctfencing.com">info@rctfencing.com</a></li>
+                            <li><i class="fas fa-map-marker-alt"></i> 122 South Rd, Waterloo, Liverpool L22 0ND</li>
+                        </ul>
+                        <div class="map-container">
+                            <iframe 
+                                src="https://maps.google.com/maps?q=122%20South%20Rd%2C%20Waterloo%2C%20Liverpool%20L22%200ND&t=&z=15&ie=UTF8&iwloc=&output=embed" 
+                                width="100%" 
+                                height="250" 
+                                style="border:0;" 
+                                allowfullscreen="" 
+                                loading="lazy" 
+                                referrerpolicy="no-referrer-when-downgrade">
+                            </iframe>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
