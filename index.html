@@ -25,7 +25,7 @@
     <link rel="stylesheet" href="style.css">
 
     <!-- Favicon -->
-    <link rel="icon" href="logo.png" type="image/png">
+    <link rel="icon" href="logo.svg" type="image/svg+xml">
     
     <!-- Structured Data for Local Business -->
     <script type="application/ld+json">
@@ -33,7 +33,7 @@
       "@context": "https://schema.org",
       "@type": "LocalBusiness",
       "name": "RCT Fencing LTD",
-      "image": "https://your-domain.com/logo.png",
+      "image": "https://your-domain.com/logo.svg",
       "description": "#1 garden fences Liverpool specialist. Professional fence installation Liverpool, commercial fencing, and gates.",
       "url": "https://your-domain.com",
       "telephone": "+44 7545 342411",
@@ -81,6 +81,64 @@
       }
     }
     </script>
+    
+    <!-- FAQ Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How much does fencing installation cost in Liverpool?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Fencing costs vary depending on the type, height, and length of fencing you need. Garden panel fencing typically starts from £35-£50 per metre, while feather edge fencing ranges from £45-£65 per metre. We provide free, no-obligation quotes with a detailed breakdown of all costs including materials, labour, and any additional work required."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How long does a typical fence installation take?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Most residential fence installations are completed within 1-3 days, depending on the length and complexity. A standard garden fence of 30-50 metres can usually be installed in 1-2 days. We'll provide an accurate timeline during your free site visit and keep you informed throughout the process."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you provide free quotes and site visits?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, absolutely! We provide completely free, no-obligation quotes and site visits throughout Liverpool, Waterloo, Crosby, and surrounding areas. During the visit, we'll assess your requirements, discuss options, and provide a detailed written quote with no hidden costs."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What areas around Liverpool do you cover?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We cover Liverpool city centre and all surrounding areas including Waterloo, Crosby, Bootle, Sefton, Maghull, Ormskirk, Kirkby, Huyton, St Helens, and throughout Merseyside. If you're unsure whether we cover your area, just give us a call and we'll let you know."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Are you fully insured and licensed contractors?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, we are fully insured with comprehensive public liability insurance and are registered on Checkatrade and MyBuilder with excellent customer reviews. We're a trusted, established business with over 15 years of experience serving the Liverpool area."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What's included in your installation service?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Our full installation service includes site measurement, materials supply, removal and disposal of old fencing (where required), ground preparation, post installation with concrete foundations, fence panel/board fitting, and complete site cleanup. We provide a comprehensive service from start to finish."
+          }
+        }
+      ]
+    }
+    </script>
 </head>
 <body class="light-mode">
 
@@ -89,7 +147,7 @@
         <div class="container">
             <nav class="navbar">
                 <a href="index.html" class="nav-logo">
-                    <img src="logo.png" alt="RCT Fencing Liverpool - Garden & Commercial Fence Installation">
+                    <img src="logo.svg" alt="RCT Fencing Liverpool - Garden & Commercial Fence Installation">
                 </a>
                 <ul class="nav-menu">
                     <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
@@ -97,6 +155,7 @@
                     <li class="nav-item"><a href="garden-fences-liverpool.html" class="nav-link">Garden Fences</a></li>
                     <li class="nav-item"><a href="commercial-fencing-liverpool.html" class="nav-link">Commercial</a></li>
                     <li class="nav-item"><a href="gates.html" class="nav-link">Gates</a></li>
+                    <li class="nav-item"><a href="gallery.html" class="nav-link">Gallery</a></li>
                     <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
                     <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
                 </ul>
@@ -126,7 +185,7 @@
             <div class="hero-overlay"></div>
             <div class="container hero-content" data-aos="fade-in" data-aos-duration="1500">
                 <h1 class="hero-title">Welcome To RCT Fencing Liverpool</h1>
-                <p class="hero-subtitle">Supplying & installing quality fencing, gates and sheds throughout the North West</p>
+                <p class="hero-subtitle">Serving Liverpool, Wirral, St Helens & Surrounding Areas throughout the Northwest</p>
                 <div class="hero-features">
                     <span><i class="fas fa-check"></i> Full Installation & Fitting</span>
                     <span><i class="fas fa-star"></i> 15+ Years Experience</span>
@@ -178,7 +237,7 @@
                 </div>
                 <div class="about-content">
                     <div class="about-image" data-aos="fade-right" data-aos-delay="200">
-                        <img src="photo_2025-03-17_14-24-54.jpg" alt="RCT Fencing Liverpool team installing garden fence in Liverpool">
+                        <img src="domestic fence/photo_2025-03-17_14-24-54.jpg" alt="RCT Fencing Liverpool team installing garden fence in Liverpool">
                     </div>
                     <div class="about-text" data-aos="fade-left" data-aos-delay="200">
                         <h3>Over a Decade of Experience</h3>
@@ -245,6 +304,72 @@
             </div>
         </section>
 
+        <!-- FAQ Section -->
+        <section class="faq-section" style="padding: 4rem 0; background-color: var(--background-color);">
+            <div class="container">
+                <div class="section-title" data-aos="fade-up">
+                    <h2>Frequently Asked Questions</h2>
+                    <p>Common questions about our fencing services in Liverpool</p>
+                </div>
+                <div class="faq-container" data-aos="fade-up" data-aos-delay="200">
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>How much does fencing installation cost in Liverpool?</h3>
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Fencing costs vary depending on the type, height, and length of fencing you need. Garden panel fencing typically starts from £35-£50 per metre, while feather edge fencing ranges from £45-£65 per metre. We provide free, no-obligation quotes with a detailed breakdown of all costs including materials, labour, and any additional work required.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>How long does a typical fence installation take?</h3>
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Most residential fence installations are completed within 1-3 days, depending on the length and complexity. A standard garden fence of 30-50 metres can usually be installed in 1-2 days. We'll provide an accurate timeline during your free site visit and keep you informed throughout the process.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>Do you provide free quotes and site visits?</h3>
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Yes, absolutely! We provide completely free, no-obligation quotes and site visits throughout Liverpool, Waterloo, Crosby, and surrounding areas. During the visit, we'll assess your requirements, discuss options, and provide a detailed written quote with no hidden costs.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>What areas around Liverpool do you cover?</h3>
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>We cover Liverpool city centre and all surrounding areas including Waterloo, Crosby, Bootle, Sefton, Maghull, Ormskirk, Kirkby, Huyton, St Helens, and throughout Merseyside. If you're unsure whether we cover your area, just give us a call and we'll let you know.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>Are you fully insured and licensed contractors?</h3>
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Yes, we are fully insured with comprehensive public liability insurance and are registered on Checkatrade and MyBuilder with excellent customer reviews. We're a trusted, established business with over 15 years of experience serving the Liverpool area.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>What's included in your installation service?</h3>
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Our full installation service includes site measurement, materials supply, removal and disposal of old fencing (where required), ground preparation, post installation with concrete foundations, fence panel/board fitting, and complete site cleanup. We provide a comprehensive service from start to finish.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- CTA Section -->
         <section class="contact-cta-section" style="padding: 4rem 0; background-color: var(--surface-color-light);">
              <div class="container" data-aos="fade-up" style="text-align: center;">
@@ -263,7 +388,7 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-about">
-                    <img src="logo.png" alt="RCT Fencing Liverpool - Garden Fences & Commercial Fencing" class="footer-logo">
+                    <img src="logo.svg" alt="RCT Fencing Liverpool - Garden Fences & Commercial Fencing" class="footer-logo">
                     <p>Providing top-tier fencing, gates, and decking with professional installation across the North West.</p>
                 </div>
                 <div class="footer-links">

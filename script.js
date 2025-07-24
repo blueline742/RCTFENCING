@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const heroSection = document.getElementById('home');
     
     // Define the dark mode image path
-    const darkModeImage = "url('darkfence.jpg')";
+    const darkModeImage = "url('domestic fence/darkfence.jpg')";
 
     function setTheme(isDarkMode) {
         if (isDarkMode) {
@@ -95,7 +95,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('contact-form');
     const resultDiv = document.getElementById('form-result');
 
-    form.addEventListener('submit', function(e) {
+    if (form && resultDiv) {
+        form.addEventListener('submit', function(e) {
         e.preventDefault();
         const formData = new FormData(form);
         const object = {};
@@ -144,5 +145,68 @@ document.addEventListener('DOMContentLoaded', () => {
                     resultDiv.innerHTML = '';
                 }, 5000);
             });
+        });
+    }
+
+    // --- FAQ Functionality ---
+    function initializeFAQ() {
+        const faqQuestions = document.querySelectorAll('.faq-question');
+        
+        if (faqQuestions.length === 0) {
+            return;
+        }
+        
+        faqQuestions.forEach((question) => {
+            question.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                
+                const faqItem = this.parentElement;
+                const isActive = faqItem.classList.contains('active');
+                
+                // Close all other FAQ items
+                faqQuestions.forEach(otherQuestion => {
+                    const otherItem = otherQuestion.parentElement;
+                    if (otherItem !== faqItem) {
+                        otherItem.classList.remove('active');
+                    }
+                });
+                
+                // Toggle current FAQ item
+                if (isActive) {
+                    faqItem.classList.remove('active');
+                } else {
+                    faqItem.classList.add('active');
+                }
+            });
+        });
+    }
+    
+    // Initialize FAQ functionality
+    initializeFAQ();
+    
+    // Alternative approach using event delegation (more reliable)
+    document.addEventListener('click', function(e) {
+        if (e.target.closest('.faq-question')) {
+            e.preventDefault();
+            
+            const faqQuestion = e.target.closest('.faq-question');
+            const faqItem = faqQuestion.parentElement;
+            const isActive = faqItem.classList.contains('active');
+            
+            // Close all FAQ items first
+            document.querySelectorAll('.faq-item').forEach(item => {
+                if (item !== faqItem) {
+                    item.classList.remove('active');
+                }
+            });
+            
+            // Toggle current item
+            if (isActive) {
+                faqItem.classList.remove('active');
+            } else {
+                faqItem.classList.add('active');
+            }
+        }
     });
 });
