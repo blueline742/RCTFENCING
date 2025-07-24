@@ -7,16 +7,36 @@ document.addEventListener('DOMContentLoaded', () => {
     const navMenu = document.querySelector('.nav-menu');
     const navLinks = document.querySelectorAll('.nav-link');
 
-    hamburger.addEventListener('click', () => {
+    function toggleMenu() {
         hamburger.classList.toggle('active');
         navMenu.classList.toggle('active');
-    });
+    }
 
-    // Close menu when a link is clicked
-    navLinks.forEach(link => link.addEventListener('click', () => {
+    function closeMenu() {
         hamburger.classList.remove('active');
         navMenu.classList.remove('active');
-    }));
+    }
+
+    hamburger.addEventListener('click', toggleMenu);
+
+    // Close menu when a link is clicked
+    navLinks.forEach(link => link.addEventListener('click', closeMenu));
+
+    // Close menu when clicking outside of it (on the overlay)
+    document.addEventListener('click', (e) => {
+        if (navMenu.classList.contains('active') && 
+            !navMenu.contains(e.target) && 
+            !hamburger.contains(e.target)) {
+            closeMenu();
+        }
+    });
+
+    // Close menu on escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && navMenu.classList.contains('active')) {
+            closeMenu();
+        }
+    });
 
     // --- Header Scroll Effect ---
     const header = document.querySelector('.header');

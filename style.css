@@ -950,57 +950,92 @@ body.dark-mode .scroll-to-top { background-color: var(--primary-color-dark); }
 @media (max-width: 1024px) {
     .nav-menu {
         position: fixed;
-        left: -100%;
-        top: 70px;
+        right: -100%;
+        top: 0;
         flex-direction: column;
-        width: 100%;
-        height: calc(100vh - 70px);
-        text-align: center;
-        transition: left 0.3s ease;
-        gap: 1.5rem;
-        padding-top: 3rem;
-        backdrop-filter: blur(10px);
+        width: 280px;
+        height: 100vh;
+        text-align: left;
+        transition: right 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        gap: 0;
+        padding: 100px 2rem 2rem;
+        backdrop-filter: blur(20px);
+        overflow-y: auto;
+        box-shadow: -10px 0 30px rgba(0, 0, 0, 0.1);
     }
     
     body.light-mode .nav-menu { 
-        background-color: rgba(255, 255, 255, 0.95); 
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.9) 100%);
+        border-left: 1px solid rgba(192, 0, 0, 0.1);
     }
     body.dark-mode .nav-menu { 
-        background-color: rgba(30, 30, 30, 0.95); 
+        background: linear-gradient(135deg, rgba(30, 30, 30, 0.95) 0%, rgba(20, 20, 20, 0.9) 100%);
+        border-left: 1px solid rgba(255, 71, 71, 0.1);
     }
 
     .nav-menu.active {
-        left: 0;
+        right: 0;
     }
 
     .nav-item {
-        margin: 0.5rem 0;
+        margin: 0;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    }
+    
+    body.dark-mode .nav-item {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     }
     
     .nav-link {
-        font-size: 1.2rem;
-        padding: 1rem 2rem;
-        border-radius: 8px;
-        display: inline-block;
-        min-width: 200px;
+        font-size: 1.1rem;
+        padding: 1.2rem 1rem;
+        border-radius: 0;
+        display: block;
+        width: 100%;
+        font-weight: 500;
+        position: relative;
+        transition: all 0.3s ease;
+        background: none !important;
+        border: none !important;
     }
 
-    .nav-link::after {
-        display: none; /* Remove underline in mobile menu */
+    .nav-link::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 3px;
+        height: 100%;
+        transform: scaleY(0);
+        transform-origin: center;
+        transition: transform 0.3s ease;
+    }
+    
+    body.light-mode .nav-link::before {
+        background: var(--primary-color-light);
+    }
+    
+    body.dark-mode .nav-link::before {
+        background: var(--primary-color-dark);
     }
 
-    body.light-mode .nav-link {
-        background-color: rgba(255, 255, 255, 0.8);
-        border: 1px solid rgba(192, 0, 0, 0.2);
+    .nav-link:hover::before {
+        transform: scaleY(1);
     }
 
-    body.dark-mode .nav-link {
-        background-color: rgba(255, 255, 255, 0.1);
-        border: 1px solid rgba(255, 71, 71, 0.2);
+    body.light-mode .nav-link:hover {
+        background: rgba(192, 0, 0, 0.05) !important;
+        color: var(--primary-color-light);
+    }
+
+    body.dark-mode .nav-link:hover {
+        background: rgba(255, 71, 71, 0.1) !important;
+        color: var(--primary-color-dark);
     }
 
     .hamburger {
         display: block;
+        z-index: 1001;
     }
     
     .hamburger.active .bar:nth-child(2) {
@@ -1016,6 +1051,19 @@ body.dark-mode .scroll-to-top { background-color: var(--primary-color-dark); }
     /* Hide CTA button on smaller screens to save space */
     .header-cta {
         display: none;
+    }
+    
+    /* Add overlay when menu is open */
+    .nav-menu.active::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: calc(100vw - 280px);
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.3);
+        z-index: -1;
+        backdrop-filter: blur(2px);
     }
 }
 
