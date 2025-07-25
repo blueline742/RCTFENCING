@@ -66,20 +66,182 @@
         body.dark-mode .contact-cta-section {
             background-color: var(--surface-color-dark);
         }
-        .gallery-filters {
+        /* Section Title Styling */
+        .section-title h2 {
+            color: var(--heading-color);
+            font-size: clamp(2rem, 4vw, 2.5rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
             text-align: center;
+        }
+        
+        .section-title p {
+            color: var(--text-color-secondary);
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            line-height: 1.6;
+        }
+        
+        /* Gallery Tabs Styling */
+        .gallery-tabs {
             margin-bottom: 3rem;
         }
-        .gallery-filters .btn {
-            margin: 5px;
-        }
-        .gallery-item {
-            transition: transform 0.3s ease, opacity 0.3s ease;
-        }
-        .gallery-item.hidden {
-            transform: scale(0.8);
-            opacity: 0;
+        
+        .gallery-tabs input[type="radio"] {
             display: none;
+        }
+        
+        .gallery-filter-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.5rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .gallery-tabs label {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-color);
+            text-transform: uppercase;
+            text-align: center;
+            padding: 12px 20px;
+            min-width: 120px;
+            cursor: pointer;
+            border: 2px solid var(--primary-color);
+            border-radius: 25px;
+            background: transparent;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+        }
+        
+        .gallery-tabs label:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+        }
+        
+        .gallery-tabs input[type="radio"]:checked + label {
+            background: var(--primary-color);
+            color: white;
+            cursor: default;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        
+        /* Dark mode adjustments */
+        .dark-mode .section-title h2 {
+            color: var(--heading-color-dark);
+        }
+        
+        .dark-mode .section-title p {
+            color: var(--text-color-secondary-dark);
+        }
+        
+        .dark-mode .gallery-tabs label {
+            color: var(--text-color-dark);
+            border-color: var(--primary-color-light);
+        }
+        
+        .dark-mode .gallery-tabs label:hover {
+            background: var(--primary-color-light);
+            color: var(--text-color-dark);
+        }
+        
+        .dark-mode .gallery-tabs input[type="radio"]:checked + label {
+            background: var(--primary-color-light);
+            color: var(--text-color-dark);
+        }
+        
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            .gallery-filter-wrapper {
+                flex-direction: column;
+                align-items: center;
+                gap: 0.75rem;
+            }
+            
+            .gallery-tabs label {
+                width: 100%;
+                max-width: 200px;
+                padding: 14px 20px;
+                font-size: 1rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .gallery-tabs label {
+                max-width: 160px;
+                padding: 12px 16px;
+                font-size: 0.85rem;
+                min-width: 100px;
+            }
+        }
+        
+        /* Gallery Grid */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .gallery-item {
+            display: none;
+            transition: all 0.4s ease;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            background-color: var(--surface-color);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+        
+        /* Show items based on selected radio button */
+        input[id="all"]:checked ~ .gallery-content .all {
+            display: block !important;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        
+        input[id="fencing"]:checked ~ .gallery-content .fencing {
+            display: block !important;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        
+        input[id="gates"]:checked ~ .gallery-content .gates {
+            display: block !important;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        
+        input[id="commercial"]:checked ~ .gallery-content .commercial {
+            display: block !important;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
         }
     </style>
 </head>
@@ -139,48 +301,56 @@
                     <p>Serving Liverpool, Wirral, St Helens & Surrounding Areas throughout the Northwest</p>
                 </div>
 
-                <!-- Filter Buttons -->
-                <div class="gallery-filters" data-aos="fade-up">
-                    <button class="btn btn-primary filter-btn" data-filter="all">All</button>
-                    <button class="btn btn-secondary filter-btn" data-filter="fencing">Fencing</button>
-                    <button class="btn btn-secondary filter-btn" data-filter="gates">Gates</button>
-                    <button class="btn btn-secondary filter-btn" data-filter="commercial">Commercial</button>
-                </div>
+                <!-- Filter Tabs -->
+                <div class="gallery-tabs text-center" data-aos="fade-up">
+                    <input type="radio" value="all" id="all" name="gallery-tab" checked/>
+                    <input type="radio" value="fencing" id="fencing" name="gallery-tab"/>
+                    <input type="radio" value="gates" id="gates" name="gallery-tab"/>
+                    <input type="radio" value="commercial" id="commercial" name="gallery-tab"/>
+                    
+                    <div class="gallery-filter-wrapper">
+                        <label for="all">All</label>
+                        <label for="fencing">Fencing</label>
+                        <label for="gates">Gates</label>
+                        <label for="commercial">Commercial</label>
+                    </div>
 
-                <!-- Gallery Grid -->
-                <div class="gallery-grid">
-                    <!-- Domestic/Garden Fencing -->
-                    <div class="gallery-item" data-category="fencing" data-aos="zoom-in"><img loading="lazy" src="domestic fence/photo_2025-03-17_14-23-42.jpg" alt="Feather edge garden fencing project"></div>
-                    <div class="gallery-item" data-category="fencing" data-aos="zoom-in" data-aos-delay="100"><img loading="lazy" src="domestic fence/photo_2025-03-17_14-23-47.jpg" alt="Garden panel fencing with concrete posts"></div>
-                    <div class="gallery-item" data-category="fencing" data-aos="zoom-in" data-aos-delay="200"><img loading="lazy" src="domestic fence/photo_2025-03-17_14-23-49.jpg" alt="High quality garden panel fencing"></div>
-                    <div class="gallery-item" data-category="fencing" data-aos="zoom-in" data-aos-delay="300"><img loading="lazy" src="domestic fence/photo_2025-03-17_14-23-52.jpg" alt="High post panel garden fencing"></div>
-                    <div class="gallery-item" data-category="fencing" data-aos="zoom-in" data-aos-delay="400"><img loading="lazy" src="domestic fence/photo_2025-03-17_14-23-55.jpg" alt="Professional residential fencing installation"></div>
-                    <div class="gallery-item" data-category="fencing" data-aos="zoom-in" data-aos-delay="500"><img loading="lazy" src="domestic fence/photo_2025-03-17_14-24-16.jpg" alt="Garden fence with privacy screening"></div>
-                    <div class="gallery-item" data-category="fencing" data-aos="zoom-in" data-aos-delay="100"><img loading="lazy" src="domestic fence/photo_2025-03-17_14-24-23.jpg" alt="Quality wooden garden fencing"></div>
-                    <div class="gallery-item" data-category="fencing" data-aos="zoom-in" data-aos-delay="200"><img loading="lazy" src="domestic fence/photo_2025-03-17_14-24-31.jpg" alt="Residential fence installation"></div>
-                    <div class="gallery-item" data-category="fencing" data-aos="zoom-in" data-aos-delay="300"><img loading="lazy" src="domestic fence/photo_2025-03-17_14-24-36.jpg" alt="Garden boundary fencing"></div>
-                    <div class="gallery-item" data-category="fencing" data-aos="zoom-in" data-aos-delay="400"><img loading="lazy" src="domestic fence/photo_2025-03-17_14-24-38.jpg" alt="Timber garden fence installation"></div>
-                    <div class="gallery-item" data-category="fencing" data-aos="zoom-in" data-aos-delay="500"><img loading="lazy" src="domestic fence/photo_2025-03-17_14-24-41.jpg" alt="Professional garden fencing work"></div>
-                    <div class="gallery-item" data-category="fencing" data-aos="zoom-in" data-aos-delay="100"><img loading="lazy" src="domestic fence/photo_2025-03-17_14-24-48.jpg" alt="Garden fence with concrete posts"></div>
-                    <div class="gallery-item" data-category="fencing" data-aos="zoom-in" data-aos-delay="200"><img loading="lazy" src="domestic fence/photo_2025-03-17_14-24-54.jpg" alt="Horizontal sawn garden fencing"></div>
-                    <div class="gallery-item" data-category="fencing" data-aos="zoom-in" data-aos-delay="300"><img loading="lazy" src="domestic fence/photo_2025-03-17_14-25-14.jpg" alt="Professional garden fence installation"></div>
-                    <div class="gallery-item" data-category="fencing" data-aos="zoom-in" data-aos-delay="400"><img loading="lazy" src="domestic fence/photo_2025-03-17_14-25-39.jpg" alt="Quality residential fencing project"></div>
-                    <div class="gallery-item" data-category="fencing" data-aos="zoom-in" data-aos-delay="500"><img loading="lazy" src="domestic fence/photographic fence.jpg" alt="Premium garden fencing installation"></div>
-                    
-                    <!-- Gates -->
-                    <div class="gallery-item" data-category="gates" data-aos="zoom-in" data-aos-delay="100"><img loading="lazy" src="gates/WhatsApp Image 2024-02-08 at 17.26.35_ab2c8e7e.jpg" alt="Custom wooden gate installation"></div>
-                    <div class="gallery-item" data-category="gates" data-aos="zoom-in" data-aos-delay="200"><img loading="lazy" src="gates/WhatsApp Image 2024-02-08 at 17.26.36_80e8a9eb.jpg" alt="Driveway gate installation"></div>
-                    <div class="gallery-item" data-category="gates" data-aos="zoom-in" data-aos-delay="300"><img loading="lazy" src="gates/WhatsApp Image 2024-02-08 at 17.26.37_bf546319.jpg" alt="Garden gate with matching fence"></div>
-                    <div class="gallery-item" data-category="gates" data-aos="zoom-in" data-aos-delay="400"><img loading="lazy" src="gates/WhatsApp Image 2024-02-08 at 17.26.37_d18ddfa4.jpg" alt="Security gate installation"></div>
-                    <div class="gallery-item" data-category="gates" data-aos="zoom-in" data-aos-delay="500"><img loading="lazy" src="gates/WhatsApp Image 2024-02-08 at 17.26.37_ed0ddf90.jpg" alt="Wooden driveway gate project"></div>
-                    <div class="gallery-item" data-category="gates" data-aos="zoom-in" data-aos-delay="100"><img loading="lazy" src="gates/photo_2025-03-17_14-24-02.jpg" alt="Garden gate installation project"></div>
-                    <div class="gallery-item" data-category="gates" data-aos="zoom-in" data-aos-delay="200"><img loading="lazy" src="gates/photo_2025-03-17_14-24-05.jpg" alt="Custom gate with hardware"></div>
-                    <div class="gallery-item" data-category="gates" data-aos="zoom-in" data-aos-delay="300"><img loading="lazy" src="gates/photo_2025-03-17_14-24-11.jpg" alt="Professional gate installation"></div>
-                    <div class="gallery-item" data-category="gates" data-aos="zoom-in" data-aos-delay="400"><img loading="lazy" src="gates/photo_2025-03-17_14-24-20.jpg" alt="Quality gate installation work"></div>
-                    
-                    <!-- Commercial Fencing -->
-                    <div class="gallery-item" data-category="commercial fencing" data-aos="zoom-in" data-aos-delay="500"><img loading="lazy" src="commercial/photo_2025-03-17_14-23-59.jpg" alt="Commercial security fencing project"></div>
-                    <div class="gallery-item" data-category="commercial fencing" data-aos="zoom-in" data-aos-delay="100"><img loading="lazy" src="commercial/Screenshot 2025-07-23 235124.png" alt="Commercial fencing installation"></div>
+                    <div class="gallery-content">
+                        <div class="gallery-grid">
+                            <!-- Domestic/Garden Fencing -->
+                            <div class="all fencing gallery-item"><img src="domestic fence/photo_2025-03-17_14-23-42.jpg" alt="Feather edge garden fencing project"></div>
+                            <div class="all fencing gallery-item"><img src="domestic fence/photo_2025-03-17_14-23-47.jpg" alt="Garden panel fencing with concrete posts"></div>
+                            <div class="all fencing gallery-item"><img src="domestic fence/photo_2025-03-17_14-23-49.jpg" alt="High quality garden panel fencing"></div>
+                            <div class="all fencing gallery-item"><img src="domestic fence/photo_2025-03-17_14-23-52.jpg" alt="High post panel garden fencing"></div>
+                            <div class="all fencing gallery-item"><img src="domestic fence/photo_2025-03-17_14-23-55.jpg" alt="Professional residential fencing installation"></div>
+                            <div class="all fencing gallery-item"><img src="domestic fence/photo_2025-03-17_14-24-16.jpg" alt="Garden fence with privacy screening"></div>
+                            <div class="all fencing gallery-item"><img src="domestic fence/photo_2025-03-17_14-24-23.jpg" alt="Quality wooden garden fencing"></div>
+                            <div class="all fencing gallery-item"><img src="domestic fence/photo_2025-03-17_14-24-31.jpg" alt="Residential fence installation"></div>
+                            <div class="all fencing gallery-item"><img src="domestic fence/photo_2025-03-17_14-24-36.jpg" alt="Garden boundary fencing"></div>
+                            <div class="all fencing gallery-item"><img src="domestic fence/photo_2025-03-17_14-24-38.jpg" alt="Timber garden fence installation"></div>
+                            <div class="all fencing gallery-item"><img src="domestic fence/photo_2025-03-17_14-24-41.jpg" alt="Professional garden fencing work"></div>
+                            <div class="all fencing gallery-item"><img src="domestic fence/photo_2025-03-17_14-24-48.jpg" alt="Garden fence with concrete posts"></div>
+                            <div class="all fencing gallery-item"><img src="domestic fence/photo_2025-03-17_14-24-54.jpg" alt="Horizontal sawn garden fencing"></div>
+                            <div class="all fencing gallery-item"><img src="domestic fence/photo_2025-03-17_14-25-14.jpg" alt="Professional garden fence installation"></div>
+                            <div class="all fencing gallery-item"><img src="domestic fence/photo_2025-03-17_14-25-39.jpg" alt="Quality residential fencing project"></div>
+                            <div class="all fencing gallery-item"><img src="domestic fence/photographic fence.jpg" alt="Premium garden fencing installation"></div>
+                            
+                            <!-- Gates -->
+                            <div class="all gates gallery-item"><img src="gates/WhatsApp Image 2024-02-08 at 17.26.35_ab2c8e7e.jpg" alt="Custom wooden gate installation"></div>
+                            <div class="all gates gallery-item"><img src="gates/WhatsApp Image 2024-02-08 at 17.26.36_80e8a9eb.jpg" alt="Driveway gate installation"></div>
+                            <div class="all gates gallery-item"><img src="gates/WhatsApp Image 2024-02-08 at 17.26.37_bf546319.jpg" alt="Garden gate with matching fence"></div>
+                            <div class="all gates gallery-item"><img src="gates/WhatsApp Image 2024-02-08 at 17.26.37_d18ddfa4.jpg" alt="Security gate installation"></div>
+                            <div class="all gates gallery-item"><img src="gates/WhatsApp Image 2024-02-08 at 17.26.37_ed0ddf90.jpg" alt="Wooden driveway gate project"></div>
+                            <div class="all gates gallery-item"><img src="gates/photo_2025-03-17_14-24-02.jpg" alt="Garden gate installation project"></div>
+                            <div class="all gates gallery-item"><img src="gates/photo_2025-03-17_14-24-05.jpg" alt="Custom gate with hardware"></div>
+                            <div class="all gates gallery-item"><img src="gates/photo_2025-03-17_14-24-11.jpg" alt="Professional gate installation"></div>
+                            <div class="all gates gallery-item"><img src="gates/photo_2025-03-17_14-24-20.jpg" alt="Quality gate installation work"></div>
+                            
+                            <!-- Commercial Fencing -->
+                            <div class="all commercial gallery-item"><img src="commercial/photo_2025-03-17_14-23-59.jpg" alt="Commercial security fencing project"></div>
+                            <div class="all commercial gallery-item"><img src="commercial/Screenshot 2025-07-23 235124.png" alt="Commercial fencing installation"></div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -246,37 +416,7 @@
       });
     </script>
 
-    <!-- Gallery Filter Script -->
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const filterButtons = document.querySelectorAll('.filter-btn');
-            const galleryItems = document.querySelectorAll('.gallery-item');
-
-            filterButtons.forEach(button => {
-                button.addEventListener('click', () => {
-                    const filter = button.getAttribute('data-filter');
-
-                    // Update button styles
-                    filterButtons.forEach(btn => {
-                        btn.classList.remove('btn-primary');
-                        btn.classList.add('btn-secondary');
-                    });
-                    button.classList.add('btn-primary');
-                    button.classList.remove('btn-secondary');
-
-                    // Filter gallery items
-                    galleryItems.forEach(item => {
-                        const itemCategories = item.getAttribute('data-category');
-                        if (filter === 'all' || itemCategories.includes(filter)) {
-                            item.classList.remove('hidden');
-                        } else {
-                            item.classList.add('hidden');
-                        }
-                    });
-                });
-            });
-        });
-    </script>
+    <!-- No JavaScript needed - Pure CSS solution! -->
 
     <!-- Link to your JS file -->
     <script src="script.js"></script>

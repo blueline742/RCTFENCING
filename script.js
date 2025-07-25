@@ -147,8 +147,12 @@ document.addEventListener('DOMContentLoaded', () => {
                     .then(async (response) => {
                         let jsonResponse = await response.json();
                         if (response.status == 200) {
-                            resultDiv.innerHTML = "Thank you! Your message has been sent successfully. We'll get back to you soon.";
+                            resultDiv.innerHTML = "Thank you! Redirecting to success page...";
                             resultDiv.style.color = 'green';
+                            // Redirect to success page after 2 seconds
+                            setTimeout(() => {
+                                window.location.href = 'success.html';
+                            }, 2000);
                         } else {
                             console.log(response);
                             resultDiv.innerHTML = jsonResponse.message;
@@ -162,9 +166,12 @@ document.addEventListener('DOMContentLoaded', () => {
                     })
                     .then(function() {
                         form.reset();
-                        setTimeout(() => {
-                            resultDiv.innerHTML = '';
-                        }, 8000);
+                        // Only clear message if there was an error (not redirecting)
+                        if (!resultDiv.innerHTML.includes('Redirecting')) {
+                            setTimeout(() => {
+                                resultDiv.innerHTML = '';
+                            }, 8000);
+                        }
                     });
             });
         }

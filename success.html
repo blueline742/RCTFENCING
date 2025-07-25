@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags for Success Page -->
+    <title>Thank You | RCT Fencing Liverpool - Your Message Has Been Sent</title>
+    <meta name="description" content="Thank you for contacting RCT Fencing Liverpool. Your enquiry has been received and we'll get back to you soon with a free quote.">
+    <meta name="author" content="RCT Fencing LTD">
+    <meta name="robots" content="noindex, follow">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Animate On Scroll Library -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+    <!-- Link to your CSS file -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Favicon -->
+    <link rel="icon" href="logo.svg" type="image/svg+xml">
+    
+    <!-- Page-Specific CSS -->
+    <style>
+        .success-section {
+            padding: 6rem 0;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-color-dark) 100%);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* Light mode adjustments */
+        .light-mode .success-section {
+            background: linear-gradient(135deg, #2C5530 0%, #1F3D23 100%);
+            color: white;
+        }
+        
+        /* Dark mode adjustments */
+        .dark-mode .success-section {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-color-dark) 100%);
+            color: white;
+        }
+        
+        .success-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('success.png') center/contain no-repeat;
+            opacity: 0.05;
+            z-index: 0;
+        }
+        
+        .success-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .success-icon {
+            width: 120px;
+            height: 120px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 2rem;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .success-icon i {
+            font-size: 3rem;
+            color: #4CAF50;
+        }
+        
+        .success-title {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+            color: white;
+        }
+        
+        .success-subtitle {
+            font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            line-height: 1.6;
+            color: white;
+        }
+        
+        .success-logo {
+            max-width: 200px;
+            width: 100%;
+            height: auto;
+            margin: 2rem auto;
+            display: block;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 1rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        
+        .success-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 3rem;
+        }
+        
+        .btn-white {
+            background: white;
+            color: #2C5530;
+            border: 2px solid white;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .btn-white:hover {
+            background: transparent;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.8);
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .btn-outline:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+        
+        .contact-info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .contact-info-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1.5rem;
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s ease;
+        }
+        
+        .contact-info-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .contact-info-item i {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #4CAF50;
+        }
+        
+        .contact-info-item h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: white;
+        }
+        
+        .contact-info-item p {
+            margin: 0;
+            opacity: 0.9;
+            color: white;
+        }
+        
+        .contact-info-item a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .contact-info-item a:hover {
+            color: #4CAF50;
+        }
+        
+        @media (max-width: 768px) {
+            .success-actions {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn-white,
+            .btn-outline {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body class="light-mode">
+
+    <!-- Header Section -->
+    <header class="header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="nav-logo">
+                    <img src="logo.svg" alt="RCT Fencing Liverpool - Garden & Commercial Fence Installation">
+                </a>
+                <ul class="nav-menu">
+                    <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="fencing.html" class="nav-link">Fencing</a></li>
+                    <li class="nav-item"><a href="garden-fences-liverpool.html" class="nav-link">Garden Fences</a></li>
+                    <li class="nav-item"><a href="commercial-fencing-liverpool.html" class="nav-link">Commercial</a></li>
+                    <li class="nav-item"><a href="gates.html" class="nav-link">Gates</a></li>
+                    <li class="nav-item"><a href="gallery.html" class="nav-link">Gallery</a></li>
+                    <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+                    <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+                <div class="header-actions">
+                    <a href="contact.html" class="header-cta">Free Quote</a>
+                    <div class="theme-switcher">
+                        <i class="fas fa-sun" id="theme-icon-sun"></i>
+                        <label class="switch">
+                            <input type="checkbox" id="theme-toggle">
+                            <span class="slider round"></span>
+                        </label>
+                        <i class="fas fa-moon" id="theme-icon-moon"></i>
+                    </div>
+                    <div class="hamburger">
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Success Section -->
+        <section class="success-section">
+            <div class="success-content" data-aos="fade-in" data-aos-duration="1000">
+                <div class="success-icon" data-aos="zoom-in" data-aos-delay="200">
+                    <i class="fas fa-check"></i>
+                </div>
+                
+                <h1 class="success-title" data-aos="fade-up" data-aos-delay="400">Thank You!</h1>
+                
+                <p class="success-subtitle" data-aos="fade-up" data-aos-delay="600">
+                    Your message has been successfully sent. We've received your enquiry and will get back to you as soon as possible with a free, no-obligation quote.
+                </p>
+                
+                <img src="logo.png" alt="RCT Fencing Liverpool Logo" class="success-logo" data-aos="fade-up" data-aos-delay="800">
+                
+                <div class="success-actions" data-aos="fade-up" data-aos-delay="1000">
+                    <a href="index.html" class="btn-white">
+                        <i class="fas fa-home"></i>
+                        Back to Home
+                    </a>
+                    <a href="gallery.html" class="btn-outline">
+                        <i class="fas fa-images"></i>
+                        View Our Work
+                    </a>
+                </div>
+                
+                <div class="contact-info-grid" data-aos="fade-up" data-aos-delay="1200">
+                    <div class="contact-info-item">
+                        <i class="fas fa-phone"></i>
+                        <h4>Call Us Now</h4>
+                        <p><a href="tel:+447545342411">+44 7545 342411</a></p>
+                    </div>
+                    <div class="contact-info-item">
+                        <i class="fas fa-envelope"></i>
+                        <h4>Email Us</h4>
+                        <p><a href="mailto:info@rctfencing.com">info@rctfencing.com</a></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quick Services Section -->
+        <section class="services-section" style="padding: 4rem 0;">
+            <div class="container" data-aos="fade-up">
+                <div class="section-title">
+                    <h2>What We Do</h2>
+                    <p>Professional fencing solutions across Liverpool and the North West</p>
+                </div>
+                <div class="services-grid">
+                    <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="service-icon"><i class="fas fa-border-all"></i></div>
+                        <h3>Garden Fencing</h3>
+                        <p>Professional installation of garden fences using quality materials to enhance your property's security and privacy.</p>
+                        <a href="garden-fences-liverpool.html" class="btn btn-secondary">Learn More</a>
+                    </div>
+                    <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="service-icon"><i class="fas fa-building"></i></div>
+                        <h3>Commercial Fencing</h3>
+                        <p>Secure commercial properties with our range of industrial-grade fencing solutions and professional installation.</p>
+                        <a href="commercial-fencing-liverpool.html" class="btn btn-secondary">Learn More</a>
+                    </div>
+                    <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+                        <div class="service-icon"><i class="fas fa-dungeon"></i></div>
+                        <h3>Gates & Access</h3>
+                        <p>Custom-made gates for residential and commercial properties, combining security with style and functionality.</p>
+                        <a href="gates.html" class="btn btn-secondary">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <img src="logo.svg" alt="RCT Fencing Liverpool - Garden Fences & Commercial Fencing" class="footer-logo">
+                    <p>Providing top-tier fencing, gates, and decking with professional installation across the North West.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="fencing.html">Fencing</a></li>
+                        <li><a href="gates.html">Gates</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact Us</h4>
+                    <p><i class="fas fa-phone"></i> +44 7545 342411</p>
+                    <p><i class="fas fa-envelope"></i> info@rctfencing.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> 122 South Rd, Waterloo, Liverpool L22 0ND</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 RCT Fencing LTD - 15471433. All Rights Reserved.</p>
+                <div class="social-icons">
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <a href="#" class="scroll-to-top"><i class="fas fa-arrow-up"></i></a>
+
+    <!-- Animate on Scroll JS -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init({
+          once: true,
+          duration: 1000,
+      });
+    </script>
+
+    <!-- Link to your JS file -->
+    <script src="script.js"></script>
+</body>
+</html>
