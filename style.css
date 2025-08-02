@@ -42,12 +42,15 @@
 html {
     scroll-behavior: smooth;
     font-size: 16px;
+    overflow-x: hidden;
 }
 
 body {
     font-family: var(--font-secondary);
     line-height: 1.6;
     transition: background-color var(--transition-speed), color var(--transition-speed);
+    overflow-x: hidden;
+    width: 100%;
 }
 
 /* Theme-specific body styles */
