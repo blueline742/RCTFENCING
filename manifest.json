@@ -1,0 +1,38 @@
+{
+  "name": "RCT Fencing Liverpool - Professional Fencing Services",
+  "short_name": "RCT Fencing",
+  "description": "#1 garden fences Liverpool specialist. Professional fence installation, commercial fencing, and gates. Serving Waterloo, Crosby, Sefton.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#2c7a2c",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/logo.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["business", "construction", "home services"],
+  "lang": "en-GB",
+  "dir": "ltr",
+  "scope": "/",
+  "screenshots": [
+    {
+      "src": "/domestic fence/photo_2025-03-17_14-24-54.jpg",
+      "sizes": "1920x1080",
+      "type": "image/jpeg",
+      "label": "Garden fence installation example"
+    }
+  ],
+  "related_applications": [],
+  "prefer_related_applications": false
+}

@@ -1,7 +1,7 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://your-domain.com/sitemap.xml
+Sitemap: https://www.rctfencing.co.uk/sitemap.xml
 
 # Block access to temporary files
 Disallow: *.tmp

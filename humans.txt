@@ -1,0 +1,27 @@
+/* TEAM */
+Company: RCT Fencing LTD
+Contact: info@rctfencing.com
+Phone: +44 7545 342411
+Location: Waterloo, Liverpool, UK
+Company Registration: 15471433
+
+/* SITE */
+Last update: 2025/01/14
+Language: English / UK
+Standards: HTML5, CSS3, JavaScript
+Components: Font Awesome, AOS (Animate On Scroll)
+Software: Visual Studio Code
+
+/* SERVICES */
+Main Services: Garden Fencing, Commercial Fencing, Gates, Decking
+Coverage Areas: Liverpool, Waterloo, Crosby, Sefton, Wirral, St Helens, Southport, North West England
+Experience: 15+ Years
+
+/* VERIFICATION */
+Checkatrade: https://www.checkatrade.com/trades/rctfencingltd
+MyBuilder: https://www.mybuilder.com/profile/rct_fencing
+Companies House: https://find-and-update.company-information.service.gov.uk/company/15471433
+
+/* WEBSITE */
+Design & Hosting: stellarcoredesigns.com
+Form Processing: Web3Forms
