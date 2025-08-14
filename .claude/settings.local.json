@@ -7,7 +7,8 @@
       "Bash(ls:*)",
       "Bash(find:*)",
       "Bash(gh repo view:*)",
-      "Bash(git config:*)"
+      "Bash(git config:*)",
+      "WebFetch(domain:www.rctfencing.co.uk)"
     ],
     "deny": []
   }
