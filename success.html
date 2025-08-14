@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
+    <!-- Preconnect to external domains for faster loading -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://unpkg.com">
+    
     <!-- SEO Meta Tags for Success Page -->
     <title>Thank You | RCT Fencing Liverpool - Your Message Has Been Sent</title>
     <meta name="description" content="Thank you for contacting RCT Fencing Liverpool. Your enquiry has been received and we'll get back to you soon with a free quote.">
@@ -36,10 +40,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 
     <!-- Font Awesome for Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
 
     <!-- Animate On Scroll Library -->
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" media="print" onload="this.media='all'" />
+    <noscript><link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" /></noscript>
 
     <!-- Link to your CSS file -->
     <link rel="stylesheet" href="style.css">
@@ -345,19 +351,19 @@
                         <div class="service-icon"><i class="fas fa-border-all"></i></div>
                         <h3>Garden Fencing</h3>
                         <p>Professional installation of garden fences using quality materials to enhance your property's security and privacy.</p>
-                        <a href="garden-fences-liverpool.html" class="btn btn-secondary">Learn More</a>
+                        <a href="garden-fences-liverpool.html" class="btn btn-secondary">Learn More About Garden Fencing</a>
                     </div>
                     <div class="service-card" data-aos="fade-up" data-aos-delay="200">
                         <div class="service-icon"><i class="fas fa-building"></i></div>
                         <h3>Commercial Fencing</h3>
                         <p>Secure commercial properties with our range of industrial-grade fencing solutions and professional installation.</p>
-                        <a href="commercial-fencing-liverpool.html" class="btn btn-secondary">Learn More</a>
+                        <a href="commercial-fencing-liverpool.html" class="btn btn-secondary">Learn More About Commercial Fencing</a>
                     </div>
                     <div class="service-card" data-aos="fade-up" data-aos-delay="300">
                         <div class="service-icon"><i class="fas fa-dungeon"></i></div>
                         <h3>Gates & Access</h3>
                         <p>Custom-made gates for residential and commercial properties, combining security with style and functionality.</p>
-                        <a href="gates.html" class="btn btn-secondary">Learn More</a>
+                        <a href="gates.html" class="btn btn-secondary">Learn More About Our Gates</a>
                     </div>
                 </div>
             </div>
@@ -391,7 +397,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 RCT Fencing LTD - <a href="https://find-and-update.company-information.service.gov.uk/company/15471433" target="_blank" rel="noopener" style="color: var(--primary-color-light); text-decoration: none;">15471433</a>. All Rights Reserved. | Website designed and hosted by <a href="https://stellarcoredesigns.com" target="_blank" style="color: var(--primary-color-light); text-decoration: none;">stellarcoredesigns.com</a></p>
+                <p>&copy; 2024 RCT Fencing LTD - <a href="https://find-and-update.company-information.service.gov.uk/company/15471433" target="_blank" rel="noopener" style="color: #4CAF50; text-decoration: none;">15471433</a>. All Rights Reserved. | Website designed and hosted by <a href="https://stellarcoredesigns.com" target="_blank" style="color: #4CAF50; text-decoration: none;">stellarcoredesigns.com</a></p>
                 <div class="social-icons">
                     <a href="https://www.instagram.com/rctfencingltd/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                     <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
@@ -405,7 +411,7 @@
     <a href="#" class="scroll-to-top"><i class="fas fa-arrow-up"></i></a>
 
     <!-- Animate on Scroll JS -->
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js" defer></script>
     <script>
       AOS.init({
           once: true,

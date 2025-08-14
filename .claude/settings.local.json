@@ -20,7 +20,8 @@
       "Bash(fi)",
       "Bash(done)",
       "Bash(for:*)",
-      "Bash(cp:*)"
+      "Bash(cp:*)",
+      "Bash(curl:*)"
     ],
     "deny": []
   }

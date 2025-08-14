@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
+    <!-- Preconnect to external domains for faster loading -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://unpkg.com">
+    
     <!-- SEO Meta Tags for Gallery Page -->
     <title>Our Work | Fencing & Gate Projects in Liverpool | RCT Fencing</title>
     <meta name="description" content="View the gallery of our completed fencing, gate, and commercial projects in Liverpool and the North West. See the quality craftsmanship of RCT Fencing.">
@@ -36,10 +40,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 
     <!-- Font Awesome for Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
 
     <!-- Animate On Scroll Library -->
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" media="print" onload="this.media='all'" />
+    <noscript><link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" /></noscript>
 
     <!-- Link to your CSS file -->
     <link rel="stylesheet" href="style.css">
@@ -449,7 +455,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 RCT Fencing LTD - <a href="https://find-and-update.company-information.service.gov.uk/company/15471433" target="_blank" rel="noopener" style="color: var(--primary-color-light); text-decoration: none;">15471433</a>. All Rights Reserved. | Website designed and hosted by <a href="https://stellarcoredesigns.com" target="_blank" style="color: var(--primary-color-light); text-decoration: none;">stellarcoredesigns.com</a></p>
+                <p>&copy; 2024 RCT Fencing LTD - <a href="https://find-and-update.company-information.service.gov.uk/company/15471433" target="_blank" rel="noopener" style="color: #4CAF50; text-decoration: none;">15471433</a>. All Rights Reserved. | Website designed and hosted by <a href="https://stellarcoredesigns.com" target="_blank" style="color: #4CAF50; text-decoration: none;">stellarcoredesigns.com</a></p>
                 <div class="social-icons">
                     <a href="https://www.instagram.com/rctfencingltd/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                     <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
@@ -463,7 +469,7 @@
     <a href="#" class="scroll-to-top"><i class="fas fa-arrow-up"></i></a>
 
     <!-- Animate on Scroll JS -->
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js" defer></script>
     <script>
       AOS.init({
           once: true,
