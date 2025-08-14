@@ -45,8 +45,21 @@
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" media="print" onload="this.media='all'" />
     <noscript><link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" /></noscript>
 
+    <!-- Critical CSS for above-the-fold content -->
+    <style>
+        * {margin:0;padding:0;box-sizing:border-box}
+        body {font-family:'Roboto',sans-serif;line-height:1.6;background:#fff}
+        .header {background:#fff;box-shadow:0 2px 10px rgba(0,0,0,0.1);position:fixed;width:100%;top:0;z-index:1000}
+        .hero-section {position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;background-image:url('domestic fence/hero-bg-optimized.webp');background-size:cover;background-position:center}
+        .hero-overlay {position:absolute;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.5)}
+        .container {width:100%;max-width:1200px;margin:0 auto;padding:0 20px}
+        .hero-content {position:relative;z-index:1;text-align:center;color:#fff}
+        .hero-title {font-size:clamp(2.5rem,6vw,4rem);font-weight:700;margin-bottom:1rem}
+    </style>
+    
     <!-- Link to your CSS file -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="style.css"></noscript>
 
     <!-- Favicon -->
     <link rel="icon" href="logo.svg" type="image/svg+xml">

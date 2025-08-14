@@ -306,7 +306,11 @@ body.dark-mode .bar { background-color: var(--secondary-color-dark); }
     background-position: center;
     background-repeat: no-repeat;
     transition: background-image 1s ease-in-out;
-    background-image: url('domestic fence/photographic fence.jpg');
+    background-image: url('domestic fence/hero-bg-optimized.webp');
+    background-image: -webkit-image-set(
+        url('domestic fence/hero-bg-optimized.webp') 1x,
+        url('domestic fence/photographic fence.jpg') 1x
+    );
 }
 
 .hero-overlay {
