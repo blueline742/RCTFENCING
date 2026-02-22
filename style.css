@@ -1243,3 +1243,42 @@ body.dark-mode .scroll-to-top { background-color: var(--primary-color-dark); }
         padding: 0 1rem 1rem 1rem;
     }
 }
+
+/* ------------------- */
+/* WhatsApp Sticky Button */
+/* ------------------- */
+.whatsapp-sticky {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background-color: #25d366;
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 35px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    text-decoration: none;
+}
+
+.whatsapp-sticky:hover {
+    background-color: #1ebe5d;
+    transform: scale(1.1);
+    color: white;
+}
+
+/* Ensure it doesn't overlap excessively on smaller screens */
+@media (max-width: 768px) {
+    .whatsapp-sticky {
+        width: 50px;
+        height: 50px;
+        font-size: 30px;
+        bottom: 20px;
+        right: 20px;
+    }
+}

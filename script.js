@@ -242,4 +242,14 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
     });
+
+    // --- WhatsApp Sticky Button ---
+    const waBtn = document.createElement('a');
+    waBtn.href = 'https://wa.me/447545342411';
+    waBtn.target = '_blank';
+    waBtn.rel = 'noopener noreferrer';
+    waBtn.className = 'whatsapp-sticky';
+    waBtn.setAttribute('aria-label', 'Chat with us on WhatsApp');
+    waBtn.innerHTML = '<i class="fab fa-whatsapp"></i>';
+    document.body.appendChild(waBtn);
 });
