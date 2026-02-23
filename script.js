@@ -60,14 +60,10 @@ document.addEventListener('DOMContentLoaded', () => {
         if (isDarkMode) {
             body.classList.remove('light-mode');
             body.classList.add('dark-mode');
-            // Set the dark mode image when toggled on
-            if (heroSection) heroSection.style.backgroundImage = darkModeImage;
             themeToggle.checked = true;
         } else {
             body.classList.remove('dark-mode');
             body.classList.add('light-mode');
-            // Remove the inline style to let the CSS file's default background take over
-            if (heroSection) heroSection.style.backgroundImage = '';
             themeToggle.checked = false;
         }
     }
