@@ -73,8 +73,8 @@ body.dark-mode {
 }
 
 .container {
-    width: 90%;
-    max-width: 1200px;
+    width: 95%;
+    max-width: 1300px;
     margin: 0 auto;
 }
 
@@ -148,7 +148,7 @@ body.dark-mode .header.scrolled {
 }
 
 .nav-logo img {
-    height: 50px;
+    height: 40px;
     width: auto;
     transition: transform 0.2s ease, filter 0.3s ease;
     image-rendering: -webkit-optimize-contrast;
@@ -167,12 +167,13 @@ body.dark-mode .nav-logo img {
 
 .nav-menu {
     display: flex;
-    gap: 2.5rem;
+    gap: 1.5rem;
 }
 
 .nav-link {
     font-family: var(--font-primary);
     font-weight: 600;
+    font-size: 0.95rem;
     position: relative;
     padding: 0.5rem 0;
     transition: all 0.3s ease;
