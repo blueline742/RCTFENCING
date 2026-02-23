@@ -24,8 +24,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Close menu when clicking outside of it (on the overlay)
     document.addEventListener('click', (e) => {
-        if (navMenu.classList.contains('active') && 
-            !navMenu.contains(e.target) && 
+        if (navMenu.classList.contains('active') &&
+            !navMenu.contains(e.target) &&
             !hamburger.contains(e.target)) {
             closeMenu();
         }
@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const themeToggle = document.getElementById('theme-toggle');
     const body = document.body;
     const heroSection = document.getElementById('home');
-    
+
     // Define the dark mode image path
     const darkModeImage = "url('domestic fence/darkfence.jpg')";
 
@@ -117,7 +117,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const resultDiv = document.getElementById(resultId);
 
         if (form && resultDiv) {
-            form.addEventListener('submit', function(e) {
+            form.addEventListener('submit', function (e) {
                 e.preventDefault();
                 const formData = new FormData(form);
                 const object = {};
@@ -125,25 +125,25 @@ document.addEventListener('DOMContentLoaded', () => {
                     object[key] = value;
                 });
                 const json = JSON.stringify(object);
-                
+
                 // Check if access key is properly set
                 if (object.access_key === 'YOUR_ACCESS_KEY_HERE') {
-                     resultDiv.innerHTML = "Please replace 'YOUR_ACCESS_KEY_HERE' in the HTML with your actual key from web3forms.com.";
-                     resultDiv.style.color = 'red';
-                     return;
+                    resultDiv.innerHTML = "Please replace 'YOUR_ACCESS_KEY_HERE' in the HTML with your actual key from web3forms.com.";
+                    resultDiv.style.color = 'red';
+                    return;
                 }
 
                 resultDiv.innerHTML = "Sending...";
                 resultDiv.style.color = 'gray';
 
                 fetch('https://api.web3forms.com/submit', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                            'Accept': 'application/json'
-                        },
-                        body: json
-                    })
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    body: json
+                })
                     .then(async (response) => {
                         let jsonResponse = await response.json();
                         if (response.status == 200) {
@@ -164,7 +164,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         resultDiv.innerHTML = "Something went wrong! Please try again or call us directly.";
                         resultDiv.style.color = 'red';
                     })
-                    .then(function() {
+                    .then(function () {
                         form.reset();
                         // Only clear message if there was an error (not redirecting)
                         if (!resultDiv.innerHTML.includes('Redirecting')) {
@@ -184,19 +184,19 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- FAQ Functionality ---
     function initializeFAQ() {
         const faqQuestions = document.querySelectorAll('.faq-question');
-        
+
         if (faqQuestions.length === 0) {
             return;
         }
-        
+
         faqQuestions.forEach((question) => {
-            question.addEventListener('click', function(e) {
+            question.addEventListener('click', function (e) {
                 e.preventDefault();
                 e.stopPropagation();
-                
+
                 const faqItem = this.parentElement;
                 const isActive = faqItem.classList.contains('active');
-                
+
                 // Close all other FAQ items
                 faqQuestions.forEach(otherQuestion => {
                     const otherItem = otherQuestion.parentElement;
@@ -204,7 +204,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         otherItem.classList.remove('active');
                     }
                 });
-                
+
                 // Toggle current FAQ item
                 if (isActive) {
                     faqItem.classList.remove('active');
@@ -214,26 +214,26 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
-    
+
     // Initialize FAQ functionality
     initializeFAQ();
-    
+
     // Alternative approach using event delegation (more reliable)
-    document.addEventListener('click', function(e) {
+    document.addEventListener('click', function (e) {
         if (e.target.closest('.faq-question')) {
             e.preventDefault();
-            
+
             const faqQuestion = e.target.closest('.faq-question');
             const faqItem = faqQuestion.parentElement;
             const isActive = faqItem.classList.contains('active');
-            
+
             // Close all FAQ items first
             document.querySelectorAll('.faq-item').forEach(item => {
                 if (item !== faqItem) {
                     item.classList.remove('active');
                 }
             });
-            
+
             // Toggle current item
             if (isActive) {
                 faqItem.classList.remove('active');
@@ -243,13 +243,23 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // --- WhatsApp Sticky Button ---
+    // --- WhatsApp Sticky Button & Bubble ---
+    const waContainer = document.createElement('div');
+    waContainer.className = 'whatsapp-container';
+
+    const waBubble = document.createElement('div');
+    waBubble.className = 'whatsapp-bubble';
+    waBubble.innerHTML = 'Need help?';
+
     const waBtn = document.createElement('a');
     waBtn.href = 'https://wa.me/447545342411';
     waBtn.target = '_blank';
     waBtn.rel = 'noopener noreferrer';
-    waBtn.className = 'whatsapp-sticky';
+    waBtn.className = 'whatsapp-btn';
     waBtn.setAttribute('aria-label', 'Chat with us on WhatsApp');
     waBtn.innerHTML = '<i class="fab fa-whatsapp"></i>';
-    document.body.appendChild(waBtn);
+
+    waContainer.appendChild(waBubble);
+    waContainer.appendChild(waBtn);
+    document.body.appendChild(waContainer);
 });
