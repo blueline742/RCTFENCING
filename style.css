@@ -120,24 +120,25 @@ ul {
 }
 
 body.light-mode .header {
-    background-color: rgba(192, 0, 0, 0.12);
+    background-color: rgba(180, 0, 0, 0.08);
+    /* Much lighter red tinge */
     backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(192, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(180, 0, 0, 0.1);
 }
 
 body.light-mode .header.scrolled {
-    background-color: rgba(192, 0, 0, 0.25);
+    background-color: rgba(180, 0, 0, 0.15);
     backdrop-filter: blur(20px);
 }
 
 body.dark-mode .header {
-    background-color: rgba(255, 71, 71, 0.12);
+    background-color: rgba(255, 71, 71, 0.08);
     backdrop-filter: blur(12px);
     border-bottom: 1px solid rgba(255, 71, 71, 0.1);
 }
 
 body.dark-mode .header.scrolled {
-    background-color: rgba(255, 71, 71, 0.25);
+    background-color: rgba(255, 71, 71, 0.15);
     backdrop-filter: blur(20px);
     box-shadow: 0 2px 20px rgba(255, 71, 71, 0.2);
 }
@@ -150,12 +151,15 @@ body.dark-mode .header.scrolled {
 }
 
 .nav-logo img {
-    height: 40px;
+    height: 55px;
+    /* Slightly larger to account for faded edges */
     width: auto;
     transition: transform 0.2s ease, filter 0.3s ease;
     image-rendering: -webkit-optimize-contrast;
     image-rendering: crisp-edges;
     shape-rendering: geometricPrecision;
+    -webkit-mask-image: radial-gradient(ellipse at center, rgba(0, 0, 0, 1) 40%, rgba(0, 0, 0, 0) 80%);
+    mask-image: radial-gradient(ellipse at center, rgba(0, 0, 0, 1) 40%, rgba(0, 0, 0, 0) 80%);
 }
 
 /* Brighten logo in dark mode */
@@ -417,10 +421,8 @@ body.dark-mode .bar {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(80, 0, 0, 0.5);
-    /* subtle red overlay */
-    backdrop-filter: blur(4px);
-    /* tiny blur effect */
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.7) 0%, rgba(60, 0, 0, 0.4) 100%);
+    backdrop-filter: blur(2px);
 }
 
 .hero-content {
