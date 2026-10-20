@@ -66,4 +66,46 @@
         <changefreq>monthly</changefreq>
         <priority>0.2</priority>
     </url>
+    <url>
+        <loc>https://rctfencing.co.uk/fencing-crosby</loc>
+        <lastmod>2026-10-20</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://rctfencing.co.uk/fencing-bootle</loc>
+        <lastmod>2026-10-20</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://rctfencing.co.uk/fencing-southport</loc>
+        <lastmod>2026-10-20</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://rctfencing.co.uk/fencing-formby</loc>
+        <lastmod>2026-10-20</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://rctfencing.co.uk/fencing-maghull</loc>
+        <lastmod>2026-10-20</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://rctfencing.co.uk/fencing-wirral</loc>
+        <lastmod>2026-10-20</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://rctfencing.co.uk/fence-prices-liverpool</loc>
+        <lastmod>2026-10-20</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
 </urlset>
